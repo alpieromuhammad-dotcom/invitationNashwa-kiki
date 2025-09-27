@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Undangan Pernikahan Ayu & Kiki</title>
+  <title>Undangan Pernikahan Nashwa & Kiki</title>
   
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
     }
 
     header {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -37,25 +37,26 @@
       flex-direction: column;
       color: #4b2e2e;
       animation: fadeIn 2s ease-in-out;
+      padding: 20px;
     }
     header h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 4.5rem;
+      font-size: 4rem;
       text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
       animation: glow 3s infinite alternate;
     }
     header p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       letter-spacing: 2px;
       animation: fadeUp 2s ease;
     }
 
     /* Card transparan elegan */
     .section {
-      padding: 60px 20px;
+      padding: 40px 20px;
       background: rgba(255,255,255,0.25);
       border-radius: 20px;
-      margin: 40px auto;
+      margin: 30px auto;
       max-width: 1000px;
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
@@ -67,7 +68,7 @@
     h2 {
       color: #4b2e2e;
       font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 20px;
     }
 
@@ -85,7 +86,44 @@
       animation: fadeIn 3s ease-in-out;
     }
 
-    /* Animasi pulse untuk simbol & */
+    footer {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      color: #f5e6c8;
+      text-align: center;
+      animation: fadeUp 2s ease;
+      font-size: 0.9rem;
+    }
+
+    /* Tombol musik */
+    .btn-music {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 10;
+      background: #d2b48c;
+      color: #4b2e2e;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease-in-out;
+      font-size: 0.9rem;
+    }
+    .btn-music.playing {
+      background: #8b4513;
+      color: white;
+    }
+
+   
+    #popup h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
     @keyframes pulse {
       0%   { transform: scale(1); opacity: 0.8; }
       50%  { transform: scale(1.3); opacity: 1; }
@@ -94,80 +132,86 @@
     .ampersand {
       display: inline-block;
       animation: pulse 2.5s infinite ease-in-out;
-    }
+  
+  }
 
-    /* Animasi glow */
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #d2b48c, 0 0 20px #d2b48c; }
-      to   { text-shadow: 0 0 20px #8b4513, 0 0 30px #d2b48c; }
-    }
+  #popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    text-align: center;
 
-    /* Animasi fade & slide */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateX(-40px);}
-      to { opacity: 1; transform: translateX(0);}
-    }
+    /* Sama seperti body */
+    background: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80")
+      no-repeat center center fixed;
+    background-size: cover;
+  }
 
-    footer {
-      background: rgba(0,0,0,0.6);
-      padding: 20px;
-      color: #f5e6c8;
-      text-align: center;
-      animation: fadeUp 2s ease;
-    }
+  /* Overlay blur di popup */
+  #popup::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(210, 180, 140, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: -1;
+  }
 
-    /* Tombol musik */
-    .btn-music {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-      background: #d2b48c;
-      color: #4b2e2e;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      transition: all 0.3s ease-in-out;
-    }
-    .btn-music:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
+  .popup-inner {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    padding: 30px 40px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
   </style>
 </head>
 <body>
 
 <!-- 🎵 Musik Background -->
-<!-- 🎵 Musik Background -->
-<audio id="bg-music" autoplay loop muted>
+<audio id="bg-music" loop>
   <source src="Westlife_-_Beautiful_In_White_(mp3.pm).mp3" type="audio/mp3">
   Browser Anda tidak mendukung audio.
 </audio>
-<button class="btn-music" onclick="toggleMusic()">🎵 Play / Pause</button>
+<button class="btn-music" onclick="toggleMusic()" id="musicBtn">🎵 Play Musik</button>
 
+<!-- Popup -->
+<div id="popup">
+  <div class="popup-inner text-center p-4">
+    <h2 class="judul-undangan">Undangan Pernikahan</h2>
+    <h3 class="nama-mempelai">Nashwa & Kiki</h3>
+    <button id="openBtn" class="btn btn-dark mt-3">💌 Buka Undangan</button>
+  </div>
+</div>
+
+<!-- Konten Utama -->
+<div id="content" style="display:none;">
+
+  <!-- Hero -->
+  
 <!-- Hero -->
 <header>
-  <h1>Nashwa & Kiki</h1>
+  <h1>Nashwa <span class="ampersand">&</span> Kiki</h1>
   <p>Jumat, 17 Oktober 2025</p>
-  <div id="countdown" class="countdown"></div>
+  <div id="countdown" class="countdown mt-3"></div>
 
   <!-- Tambahan Doa Restu -->
   <div class="mt-4">
-    <h3 style="font-family: 'Scheherazade', serif; font-size: 3rem; color:#4b2e2e; margin-bottom:20px;">
+    <h3 style="font-family: 'Scheherazade', serif; font-size: 2rem; color:#4b2e2e; margin-bottom:20px;">
       بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
     </h3>
-    <p style="font-size:1.4rem; max-width:800px; margin:auto; color:#4b2e2e; line-height:1.8;">
+    <p style="font-size:1.4rem; max-width:800px; margin:auto; color:#4b2e2e; line-height:1.6;">
       Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami.  
       Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu.
     </p>
@@ -178,22 +222,22 @@
 <section class="section text-center">
   <h2>Mempelai</h2>
   <div class="row justify-content-center">
-    <div class="col-md-4">
+    <div class="col-md-4 col-10 mb-4">
       <h4>Nashwa Sri Rahayu</h4>
       <p>Putri dari Alm. Bapak Andi Sutisna & Ibu Jamilah</p>
       <hr>
-      <p class="alamat"> kp.Ngamprah Kidul RT 003/ RW 002, Desa.Ngamprah, Kec.Ngamprah, Kab.Bandung Barat</p>
+      <p class="alamat"> Kp. Ngamprah Kidul RT 003/ RW 002, Desa Ngamprah, Kec. Ngamprah, Kab. Bandung Barat</p>
     </div>
-    <div class="col-md-1 d-flex align-items-center justify-content-center">
-      <h2 class="ampersand" style="font-family: 'Great Vibes', cursive; font-size: 3rem; color:#4b2e2e; margin:0;">
+    <div class="col-md-1 d-none d-md-flex align-items-center justify-content-center">
+      <h2 class="ampersand" style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color:#4b2e2e; margin:0;">
         &
       </h2>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 col-10">
       <h4>Kiki Antoni</h4>
       <p>Putra dari Bapak Adin & Ibu Kartini</p>
       <hr>
-      <p class="alamat"> kp.Cikabul RT 01 RW07 Desa. Cimanggu, Kec.Ngamprah, Kab.Bandung Barat</p>
+      <p class="alamat"> Kp. Cikabul RT 01 RW 07, Desa Cimanggu, Kec. Ngamprah, Kab. Bandung Barat</p>
     </div>
   </div>
 </section>
@@ -203,11 +247,11 @@
   <h2>Acara</h2>
   <div class="mb-4">
     <p><strong>Akad Nikah:</strong> 09.00 WIB</p>
-    <p>📍 <em>Kp.Ngamprah Kidul RT 003/ RW 002, Desa.Ngamprah, Kec.Ngamprah, Kab.Bandung Barat</em></p>
+    <p>📍 <em>Kp. Ngamprah Kidul RT 003/ RW 002, Desa Ngamprah, Kec. Ngamprah, Kab. Bandung Barat</em></p>
   </div>
   <div class="mb-4">
     <p><strong>Resepsi:</strong> 11.00 WIB</p>
-    <p>📍 <em>Kp.Ngamprah Kidul RT 003/ RW 002, Desa.Ngamprah, Kec.Ngamprah, Kab.Bandung Barat</em></p>
+    <p>📍 <em>Kp. Ngamprah Kidul RT 003/ RW 002, Desa Ngamprah, Kec. Ngamprah, Kab. Bandung Barat</em></p>
     <a href="https://maps.app.goo.gl/um4z3SuNaLMoWQZQA"
        target="_blank" class="btn btn-outline-dark btn-sm mt-2">
       <i class="fa fa-map-marker-alt"></i> Lihat Lokasi Acara
@@ -220,10 +264,10 @@
   <h2>Konfirmasi Kehadiran</h2>
   <div class="container">
     <form id="rsvpForm" class="row g-3 justify-content-center">
-      <div class="col-md-5">
+      <div class="col-md-5 col-10">
         <input type="text" id="nama" class="form-control" placeholder="Nama" required>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 col-10">
         <select id="konfirmasi" class="form-select" required>
           <option value="">Konfirmasi</option>
           <option value="Hadir">Hadir</option>
@@ -240,7 +284,7 @@
 <!-- Surah Ar-Rum -->
 <section class="section text-center">
   <h2>Surah Ar-Rum Ayat 21</h2>
-  <p style="font-size:1.2rem; max-width:900px; margin:auto; line-height:1.9; color:#4b2e2e;">
+  <p style="font-size:1rem; max-width:900px; margin:auto; line-height:1.6; color:#4b2e2e;">
     "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan untukmu pasangan-pasangan
     dari jenismu sendiri, agar kamu merasa tenteram kepadanya, dan Dia menjadikan di antaramu
     rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda
@@ -253,67 +297,70 @@
   <p>Terima Kasih atas Doa & Kehadiran Anda</p>
 </footer>
 
-<!-- Script Countdown & Musik -->
+</div>
+
 <script>
   // Countdown
   const countdown = document.getElementById("countdown");
   const eventDate = new Date("Oct 17, 2025 09:00:00").getTime();
-  const timer = setInterval(() => {
+  setInterval(() => {
     const now = new Date().getTime();
     const distance = eventDate - now;
-
-    if (distance < 0) {
-      clearInterval(timer);
-      countdown.innerHTML = "Acara Sedang Berlangsung";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+    if (distance < 0) { countdown.innerHTML = "Acara Sedang Berlangsung"; return; }
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000*60)) / 1000);
     countdown.innerHTML = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
   }, 1000);
 
-  // Musik Play/Pause
- // Musik Play/Pause
-// Musik Play/Pause
-const music = document.getElementById("bg-music");
-function toggleMusic() {
-  if (music.paused) {
-    music.muted = false; // hilangkan mute kalau user klik
-    music.play();
-  } else {
-    music.pause();
+  // Musik
+  const music = document.getElementById("bg-music");
+  const musicBtn = document.getElementById("musicBtn");
+  let isPlaying = false;
+  function playMusic() {
+    music.play().then(() => {
+      isPlaying = true;
+      musicBtn.textContent = "🎵 Pause Musik";
+      musicBtn.classList.add("playing");
+    }).catch(err => console.log("Autoplay diblokir: " + err.message));
   }
-}
+  function toggleMusic() {
+    if (isPlaying) { music.pause(); isPlaying=false; musicBtn.textContent="🎵 Play Musik"; musicBtn.classList.remove("playing"); }
+    else { playMusic(); }
+  }
 
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    music.muted = false;  // buka mute otomatis setelah halaman load
-    music.play().catch(() => {
-      console.log("Autoplay diblokir browser, user perlu klik Play 🎵");
-    });
-  }, 500); // delay sedikit supaya autoplay lebih aman
-});
-
+  // Popup buka undangan
+  const popup = document.getElementById("popup");
+  const content = document.getElementById("content");
+  document.getElementById("openBtn").addEventListener("click", () => {
+    popup.style.display = "none";
+    content.style.display = "block";
+    playMusic(); // Musik otomatis diputar setelah buka undangan
+  });
 
   // RSVP WhatsApp
   document.getElementById("rsvpForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    let nama = document.getElementById("nama").value;
+    let nama = document.getElementById("nama").value.trim();
     let konfirmasi = document.getElementById("konfirmasi").value;
+    let noHP = "6283142684934"; // ganti dengan nomor WhatsApp yang benar
+    let pesan = "";
 
     if (konfirmasi === "Hadir") {
-      let pesan = `Halo, saya *${nama}* ingin mengonfirmasi kehadiran. Saya akan *HADIR* di acara Ayu & Kiki.`;
-      let noHP = "6283813214950";
-      let url = `https://wa.me/${noHP}?text=${encodeURIComponent(pesan)}`;
+      pesan = `Halo, saya *${nama}* ingin mengonfirmasi kehadiran. Saya akan *HADIR* di acara Nashwa & Kiki.`;
+    } else if (konfirmasi === "Tidak Hadir") {
+      pesan = `Halo, saya *${nama}* mohon maaf tidak bisa hadir di acara Nashwa & Kiki.`;
+    }
+
+    if (pesan) {
+      let url = "https://wa.me/" + noHP + "?text=" + encodeURIComponent(pesan);
       window.open(url, "_blank");
-    } else {
-      alert("Terima kasih atas konfirmasinya 🙏");
     }
   });
+
+
+
 </script>
 
 </body>
